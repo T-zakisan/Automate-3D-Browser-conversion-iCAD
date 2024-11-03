@@ -1,6 +1,6 @@
 Sub Conv_iCAD_to_3D( icadFile As String )
 
-	' ICAD‚ğ‹N“®
+	' ICADã‚’èµ·å‹•
 	On Error Resume Next
 	Dim icadApp As Object: Set icadApp = GetObject(, "ICAD.Application")
 	If icadApp Is Nothing Then
@@ -8,17 +8,19 @@ Sub Conv_iCAD_to_3D( icadFile As String )
 	End If
 	On Error GoTo 0
 
-	' ƒtƒ@ƒCƒ‹‚ğŠJ‚­
+	' ãƒ•ã‚¡ã‚¤ãƒ«ã‚’é–‹ã
 	icadApp.Documents.Open icadFile
 
-	' •ÏŠ·ƒRƒ}ƒ“ƒh‚ÌÀs (ƒRƒ}ƒ“ƒhƒo[‚Å•ÏŠ·ƒEƒBƒ“ƒhƒE‚ğŠJ‚­)
+	' å¤‰æ›ã‚³ãƒãƒ³ãƒ‰ã®å®Ÿè¡Œ (ã‚³ãƒãƒ³ãƒ‰ãƒãƒ¼ã§å¤‰æ›ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã‚’é–‹ã)
 	icadApp.ExecuteCommand ("3D Browser Export Command")
 
-	' SendKeys‚Å[OK]‚ğ‰Ÿ‚· (ƒEƒBƒ“ƒhƒE‚ªƒAƒNƒeƒBƒu‚É‚È‚é‚Ü‚Å‘Ò‹@‚·‚éŠÔ‚ğİ’è)
+	' SendKeysã§[OK]ã‚’æŠ¼ã™ (ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ãŒã‚¢ã‚¯ãƒ†ã‚£ãƒ–ã«ãªã‚‹ã¾ã§å¾…æ©Ÿã™ã‚‹æ™‚é–“ã‚’è¨­å®š)
+	' ã“ã“ã¯ã€VBAã«ç§»å‹•ã•ã›ã‚‹ã¹ãï¼
 	Application.Wait Now + TimeValue("00:00:02")
+	Application.SendKeys "{TAB 2}" ' TAB x 2
 	Application.SendKeys "~" ' Enter
 
 
-  ' ICAD‚ÌI—¹ˆ—i•K—v‚É‰‚¶‚Äj
+  ' ICADã®çµ‚äº†å‡¦ç†ï¼ˆå¿…è¦ã«å¿œã˜ã¦ï¼‰
 	Set icadApp = Nothing
 End Sub
