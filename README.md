@@ -13,7 +13,7 @@ C:\Users\_YourUsername_\Documents\WindowsPowerShell
  PowerShell > 設定 > スタートアップ時に起動 > on
 ```
 
-4. iCAD_Conv.ps1　を環境に依存する部位を変更する
+3. iCAD_Conv.ps1　を環境に依存する部位を変更する
 ```
 $PathWatch = "C:\path\to\watched\folder"  			# 監視するフォルダのパス
 $PathExcel = "C:\path\to\your_vba_macro.xlsm"		# iCADをコントロールするExcel(VBA)
